@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://levels/test_level/GridGeometry.gd" type="Script" id=1]
 [ext_resource path="res://levels/test_level/GridMap.gd" type="Script" id=2]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 80, 80 )
@@ -172,6 +173,7 @@ material/0 = SubResource( 5 )
 environment = SubResource( 7 )
 
 [node name="Cubes" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="PurpleCube" type="RigidBody" parent="Cubes"]
 editor/display_folded = true
@@ -348,3 +350,5 @@ __meta__ = {
 
 [node name="Player" parent="GridMap" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="Interface" parent="." instance=ExtResource( 4 )]

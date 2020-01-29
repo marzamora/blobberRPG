@@ -16,7 +16,7 @@ var last_rotation = Vector3()
 #var rotateRight = 0
 
 var moving = false
-var bTurning = false
+var turning = false
 
 var camera
 var pitch_helper
@@ -44,11 +44,14 @@ func _physics_process(delta):
 
 func process_input(delta):
 	# Turn
-	if Input.is_action_just_pressed("ui_page_up"):
-		turn_left()
-	if Input.is_action_just_pressed("ui_page_down"):
-		turn_right()
-	
+	if !turning:
+		if Input.is_action_just_pressed("ui_page_up"):
+			turn_left()
+			turning = true
+		if Input.is_action_just_pressed("ui_page_down"):
+			turn_right()
+			turning = true
+
 	# Capture/Free the Mouse
 	if Input.is_action_just_pressed("ui_cancel"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
@@ -101,4 +104,6 @@ func turn_left():
 	target_rotation += Vector3(0, 90, 0)
 	tween.interpolate_property(self, "rotation_degrees", last_rotation, target_rotation, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
-	
+
+func _on_Tween_tween_completed(object, key):
+	turning = false
