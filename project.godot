@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Blobber RPG"
-run/main_scene="res://levels/test_level/Testing_Area.tscn"
+run/main_scene="res://interface/Interface.tscn"
 config/icon="res://icon.png"
 
 [display]
