@@ -1,4 +1,4 @@
-# Player Controller
+# Party Controller
 extends KinematicBody
 
 const SPEED = 32
