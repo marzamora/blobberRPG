@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[node name="Interface" type="Control"]
+[node name="GameGUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -22,18 +22,59 @@ size_flags_stretch_ratio = 3.0
 
 [node name="ViewportContainer" type="ViewportContainer" parent="HBoxContainer/VBoxContainer"]
 margin_right = 765.0
-margin_bottom = 355.0
+margin_bottom = 422.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
+size_flags_stretch_ratio = 5.0
 
-[node name="ActionBar" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 359.0
+[node name="Viewport" type="Viewport" parent="HBoxContainer/VBoxContainer/ViewportContainer"]
+
+[node name="ActiveBar" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 426.0
 margin_right = 765.0
-margin_bottom = 477.0
+margin_bottom = 510.0
 size_flags_vertical = 3
+
+[node name="ActivePartyMember" type="TextureRect" parent="HBoxContainer/VBoxContainer/ActiveBar"]
+margin_right = 64.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="ActionBar" type="GridContainer" parent="HBoxContainer/VBoxContainer/ActiveBar"]
+margin_left = 68.0
+margin_right = 765.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+columns = 10
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/ActiveBar/ActionBar"]
+margin_right = 69.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 69, 69 )
+size_flags_vertical = 0
+action_mode = 0
+
+[node name="ActionButton" type="Button" parent="HBoxContainer/VBoxContainer/ActiveBar/ActionBar"]
+margin_left = 73.0
+margin_right = 142.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 69, 69 )
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/ActiveBar/ActionBar/ActionButton"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -12.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = 14.0
+text = "1"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Party" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 481.0
+margin_top = 514.0
 margin_right = 765.0
 margin_bottom = 600.0
 size_flags_vertical = 3
@@ -46,20 +87,20 @@ size_flags_horizontal = 3
 
 [node name="Switch View" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2"]
 margin_right = 255.0
-margin_bottom = 355.0
+margin_bottom = 422.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
+size_flags_stretch_ratio = 5.0
 
 [node name="MovementButtons" type="GridContainer" parent="HBoxContainer/VBoxContainer2"]
-margin_top = 359.0
+margin_top = 426.0
 margin_right = 255.0
-margin_bottom = 477.0
+margin_bottom = 510.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 3
 
 [node name="SpecialButtons" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
-margin_top = 481.0
+margin_top = 514.0
 margin_right = 255.0
 margin_bottom = 600.0
 size_flags_vertical = 3
